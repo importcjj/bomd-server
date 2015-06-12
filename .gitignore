@@ -1,0 +1,6 @@
+#python pyc file
+*.pyc
+
+#files
+*.log
+*.txt

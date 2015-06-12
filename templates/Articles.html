@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+{% if num == 'all'%}
+<form>
+    <input maxlength="15" name="search" placeholder="搜索文章"/>
+    <code><b><a href="?search=python">python</a></b></code>
+    <code><b><a href="?search=Git">Git</a></b></code>
+    <code><b><a href="?search=GitHub">GitHub</a></b></code>
+    <code><b><a href="?search=Java">Java</a></b></code>
+    <code><b><a href="?search=MongoDB">MongoDB</a></b></code>
+    <code><b><a href="?search=普通">普通</a></b></code>
+    <code><b><a href="?search=flask">flask</a></b></code>
+    <code><b><a href="?search=MacOS">MacOS</a></b></code>
+    <code><b><a href="?search=Linux">Linux</a></b></code>
+    <code><b><a href="?search=Unix">Unix</a></b></code>
+    <code><b><a href="?search=MarkDown">MarkDown</a></b></code>
+    <code><b><a href="?search=Objective-C">Objective-C</a></b></code>
+    <code><b><a href="?search=Swift">Swift</a></b></code>
+    <code><b><a href="?search=Ios开发">Ios开发</a></b></code>
+    <code><b><a href="?search=生活">生活</a></b></code>
+    <code><b><a href="?search=疑问">疑问</a></b></code>
+</form><br>
+	{% if tips %}{{tips}}{% endif %}
+	{% for article in articles %}
+<pre>
+<a href="?title={{article[0]}}"><h3>{% if article[2] %}☣{% else%}♕{% endif %}{{article[0]}}</h3></a>
+{{article[1]}}  {{article[3]}}
+</pre>
+	{% endfor %}
+    {% if pageID%}&nbsp;&nbsp;&nbsp;
+    {% if pageID > 1 %}<b><a href="?search={% if searchfor %}{{searchfor}}{% endif %}&page={{pageID-1}}"><code>上一页</code></a></b>{% endif %} 
+    {% if pageID < maxPage %}<b><a href="?search={% if searchfor %}{{searchfor}}{% endif %}&page={{pageID+1}}"><code>下一页</code></a></b>{% endif %}
+    {% endif %}
+{% else %}
+	{% if article[2] != lock %}
+	文档加密，请输入正确的访问密码
+	<form method="post">
+	<input name="lock" placeholder = "输入密码" target="_self">
+	</form>
+	{% else %}
+    <div class="article">
+<span>✍  {{article[1]}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>➢  {% if article[4] %}{{article[4]}}{% else %}无{% endif %}</span><br><br>
+	{{article[3]|safe}}
+    </div>
+	
+</div>
+<div class="comment">
+	
+<h3>☞评论</h3>
+{%if comments%}
+    {% for comment in comments %}
+<!--form action="../comment?article={{article[0]}}&parentID={{comment[0]}}&replyto={{comment[2]}}" method="post"-->
+{{comment[2]}}<!--input type="submit" value="回复"/-->  回复于：{{comment[4]}}
+<!--/form--><hr>
+    <pre>{{comment[7]}}</pre>
+
+	{% endfor %}
+{% else %}
+还没有评论，快来抢沙发吧!<br>
+{% endif %}
+	<form action="../comment?article={{article[0]}}" method="post">
+	<input name="username" type="text" maxlength="15" {% if nickname %}value={{nickname}} {%else%} placeholder="昵称"{% endif%} />
+	<input name="email" type="text" {% if email %}value={{email}} {%else%} placeholder="Email"{% endif %} /><br>
+	<textarea class="textinput"  name="content" placeholder="在这里输入你的评论" maxlength="500"></textarea>
+    <input type="submit" value="提交"/>
+	</form>
+</div>
+{% endif %}{% endif%}
+{% endblock %}

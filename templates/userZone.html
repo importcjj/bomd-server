@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+{% if style %}{{style}}{% endif %}
+<pre><h4>This is {{user}}'s Zone</h4></pre>
+{% for theme in themes%}
+<a href="userzone?name={{user}}&style={{theme}}">{{theme}}</a><br>
+{% endfor %}
+{% endblock %}

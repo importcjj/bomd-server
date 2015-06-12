@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="introduce">
+    
+<pre>
+<h4>什么是BOMD</h4>
+
+<p><code>base on markdown</code></p>
+
+<ul>
+<li>一款基于markdown制作的本地化管理的超轻量级博客框架</li>
+<li>基于markdown的样式，用户可自由切换风格以获得不一样体验</li>
+</ul>
+
+
+<hr />
+
+<h4>项目架构</h4>
+
+<p><code>architecture</code></p>
+
+<ul>
+<li><p>Remote_server 远程服务端</p>
+
+<p>  主要负责博客的呈现，以及响应仓库管理器的请求</p></li>
+<li><p>Local_client 本地仓库管理</p>
+
+<p>  主要负责文章和资源的推送，以及博客相关的设置</p></li>
+</ul>
+
+<h4>bug列表</h4>
+发布的文件如果含有英文单引号，应该加上转义字符， 否则发布失败
+</pre>
+</div>
+{% endblock %}
