@@ -109,7 +109,7 @@ def listEssays():
 
 
 def CreateTableEssay():
-	conn = mdb.connect(db='test')
+	conn = get_conn()
 	cursor = conn.cursor()
 	sql = '''create table IF NOT EXISTS Essay(
 	essayID INT PRIMARY KEY AUTO_INCREMENT,

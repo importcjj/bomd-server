@@ -2,5 +2,10 @@
 *.pyc
 
 #files
+.DS_Store
 *.log
 *.txt
+*.jpg
+
+#dir
+/static/images
