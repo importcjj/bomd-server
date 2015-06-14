@@ -19,15 +19,15 @@
     <div id="main">
 
         <a href="/index" target="_self"><h1>✑︎简单|BOMD.</h1></a>
-    <div > 
-        <b><a href="/index" target="_self">首页</a></b>
-        <b><a href="/articles" target="_self">博文</a></b>
-        <b><a href="/resources" target="_self">资源</a></b>
-        <b><a href="/about" target="_self">关于</a></b>
+    <div class="navbar"> 
+        <b><a class="navbara" href="/index" target="_self">首页</a></b>
+        <b><a class="navbara" href="/articles" target="_self">博文</a></b>
+        <b><a class="navbara" href="/resources" target="_self">资源</a></b>
+        <b><a class="navbara" href="/about" target="_self">关于</a></b>
         
         {% if user %} 
-        <b><a href="/userzone?name={{user}}">{{user}}</a></b>
-        <b><a href="/logout" target="_self">注销</a></b>
+        <b><a class="navbara" href="/userzone?name={{user}}">{{user}}</a></b>
+        <b><a class="navbara" href="/logout" target="_self">注销</a></b>
         {% else %}
 		{% endif %}
 </div><hr>

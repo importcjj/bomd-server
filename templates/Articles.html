@@ -24,7 +24,7 @@
 	{% if tips %}{{tips}}{% endif %}
 	{% for article in articles %}
 <pre>
-<a href="?title={{article[0]}}"><h3>{% if article[2] %}☣{% else%}♕{% endif %}{{article[0]}}</h3></a>
+<a href="?title={{article[0]}}"><h3>{% if article[2] %}♔{% else%}♕{% endif %}{{article[0]}}</h3></a>
 {{article[1]}}  {{article[3]}}
 </pre>
 	{% endfor %}
@@ -46,8 +46,10 @@
 	
 </div>
 <div class="comment">
-	
-<h3>☞评论</h3>
+
+<br>
+<br>	
+<h3>☞评论</h3><br>
 {%if comments%}
     {% for comment in comments %}
 <!--form action="../comment?article={{article[0]}}&parentID={{comment[0]}}&replyto={{comment[2]}}" method="post"-->
@@ -58,10 +60,10 @@
 	{% endfor %}
 {% else %}
 还没有评论，快来抢沙发吧!<br>
-{% endif %}
+{% endif %}<br>
 	<form action="../comment?article={{article[0]}}" method="post">
 	<input name="username" type="text" maxlength="15" {% if nickname %}value={{nickname}} {%else%} placeholder="昵称"{% endif%} />
-	<input name="email" type="text" {% if email %}value={{email}} {%else%} placeholder="Email"{% endif %} /><br>
+	<input name="email" type="text" {% if email %}value={{email}} {%else%} placeholder="Email"{% endif %} /><br><br>
 	<textarea class="textinput"  name="content" placeholder="在这里输入你的评论" maxlength="500"></textarea>
     <input type="submit" value="提交"/>
 	</form>

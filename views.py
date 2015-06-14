@@ -2,11 +2,12 @@
 import os
 import sys
 import pages
-import mysql4comment as db4comment
-import mysql4essay as db4essay
+from config import *
+import sqlite4comment as db4comment
+import sqlite4essay as db4essay
+# from sae.storage import Bucket, Connection
 
 from flask import Flask
-from sae.storage import Bucket, Connection
 from flask import render_template, url_for, request, redirect, make_response, session
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -14,9 +15,7 @@ sys.setdefaultencoding('utf-8')
 
 app = Flask(__name__)
 app.secret_key = 'm\xf8>I\xa9\xbf\x05\x81\xf3\xf0\x9aA\xab%1s\xff5\xe6D\x99\xbc%\xa2'
-# 本地库的验证账户和密码
-ADMIN_NAME = "cjj"
-ADMIN_PASSWORD = "cjj"
+
 
 #首页的处理逻辑
 @app.route('/')
@@ -25,14 +24,14 @@ def index():
     title = 'Stay with me'
     img = url_for('static', filename='images/baby.jpg')
     # username = request.cookies.get('username')
-    # username = session.get('username')
+    username = session.get('username')
     if username:
         return render_template("index.html", user=username, title=title, img=img)
     else:
         # return redirect("/login")
         return render_template("index.html", title=title, img=img)
 
-
+#注册的处理逻辑
 @app.route('/regist', methods=['GET', 'POST'])
 def regist():
     #暂时不开放注册功能
@@ -116,14 +115,14 @@ def upload():
                 try:
                     resource = request.files['file']
                     filename = request.form.get('file_name')
-                    conn = Connection(account='bomd')
+                    conn = Connection(account=PROJECT_NAME)
                     bucket = conn.get_bucket('resources')
                     bucket.put_object(filename, resource.read())
                     #return bucket.generate_url(filename)
                     #print "User: %s has upload resource: %s"%(username, filename)
                     return u"(remote)资源上传成功: %s"%filename
                 except:
-                    return "(remote)cuowu"
+                    return "(remote)资源上传失败: %s"%filename
 
             elif uploadType == 'Essays':
                 essayBody = request.files['essay_body'].read()
@@ -181,7 +180,7 @@ def manage():
 
 #有关文章的处理逻辑
 @app.route('/articles', methods=['POST', 'GET'])
-def listArticles():
+def Articles():
     searchfor = request.args.get('search')
     essayTitle = request.args.get('title')
     pageID = request.args.get('page')
@@ -192,32 +191,32 @@ def listArticles():
         try:
             articles = list(db4essay.listEssays()) # [title, uptime, pwd, tag] 时间 上传时间 访问密码 标签
             meeted_articles = [article for article in articles if searchfor in article[0] or searchfor in article[-1] ]
-            tips = "" if articles else "抱歉！什么都没找到.."
+            tips = "" if meeted_articles else "抱歉！什么都没找到.."
             maxPage, pageID, sub_meeted_articles = pages.pageHandle(meeted_articles, 4, pageID)
         except Exception as e:
-            return e.message
+            return "出错啦!\n%s"%e.message
         else:
-            return render_template('Articles.html', num='all', articles=sub_meeted_articles, title="所有博文", tags=tags, tips=tips, maxPage=maxPage, pageID=pageID, searchfor=searchfor)
+            return render_template('Articles.html', num='all', articles=sub_meeted_articles, title="所有博文", tips=tips, maxPage=maxPage, pageID=pageID, searchfor=searchfor)
     #如果没有标题,说明是显示文章列表
     if not essayTitle:
         try:
             articles = list(db4essay.listEssays())
             maxPage, pageID, articles = pages.pageHandle(articles, 4, pageID)
         except Exception as e:
-            return e.message
+            return "出错啦!\n%s"%e.message
         else:
             return render_template('Articles.html', num='all', articles = articles, title="所有博文", maxPage=maxPage, pageID=pageID, searchfor=searchfor)
     #如果有标题，说明就是某一文章的内容页
     else:
-        #取出该文章相应的评论
         nickname = session['nickname'] if session.has_key('nickname') else  ""
         email = session['email'] if session.has_key('email') else "" 
         try:
-            Essay = db4essay.SelectEssay(essayTitle)  #从数据库取出相应标题的文章
-            Essay = Essay[-5:]               #标题， 时间， 访问密码， 正文， 标签
-            comments = db4comment.getByTitle(essayTitle)
+            Essay = db4essay.SelectEssay(essayTitle)        #从数据库取出相应标题的文章
+            Essay = Essay[-5:]                              #标题， 时间， 访问密码， 正文， 标签
+            comments = db4comment.getByTitle(essayTitle)    #取出该文章相应的评论
+            # return "%d"%len(comments)
         except Exception as e:
-            return e.message
+            return "出错啦!\n%s"%e.message
 
         if request.method == 'GET':
             essayLock = session[essayTitle]if session.has_key(essayTitle) else ""
@@ -231,7 +230,7 @@ def listArticles():
 #资源页面的处理逻辑
 @app.route('/resources')
 def Resources():
-    conn = Connection(account='bomd')
+    conn = Connection(account=PROJECT_NAME)
     bucket = conn.get_bucket('resources')
     #一个obj就是一个资源文件
     #资源文件的url

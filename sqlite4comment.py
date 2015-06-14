@@ -1,28 +1,11 @@
 #coding:utf-8
 
-import sae.const
-import MySQLdb as mdb
+import sqlite3
 import time
-#-----------------------------------------------------------------
-# sae.const.MYSQL_DB      # 数据库名
-# sae.const.MYSQL_USER    # 用户名
-# sae.const.MYSQL_PASS    # 密码
-# sae.const.MYSQL_HOST    # 主库域名（可读写）
-# sae.const.MYSQL_PORT    # 端口，类型为<type 'str'>，请根据框架要求自行转换为int
-# sae.const.MYSQL_HOST_S  # 从库域名（只读）
-#-----------------------------------------------------------------
-
-
 
 #获取数据库连接
 def get_conn():
-	conn = mdb.connect(
-		host=sae.const.MYSQL_HOST,
-		user=sae.const.MYSQL_USER,
-		passwd=sae.const.MYSQL_PASS,
-		db=sae.const.MYSQL_DB,
-		port=int(sae.const.MYSQL_PORT),
-		charset='utf8')
+	conn = sqlite3.connect('../temp/litedb.db')
 	return conn
 
 def new_comment(essayTitle, username, email, parentID, replyto, content):
@@ -60,7 +43,7 @@ def CreateTableComment():
 	conn = get_conn()
 	cursor = conn.cursor()
 	sql = '''create table IF NOT EXISTS Comment(
-	commentID INT PRIMARY KEY AUTO_INCREMENT,
+	commentID INTEGER PRIMARY KEY AUTOINCREMENT,
 	essayTitle TEXT NOT NULL,
 	username TEXT NOT NULL,
 	email TEXT NOT NULL,
@@ -77,3 +60,6 @@ def CreateTableComment():
 	finally:
 		cursor.close()
 		conn.close()
+
+if __name__ == "__main__":
+	CreateTableComment()
