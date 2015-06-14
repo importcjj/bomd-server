@@ -28,7 +28,7 @@
 {{article[1]}}  {{article[3]}}
 </pre>
 	{% endfor %}
-    {% if pageID%}&nbsp;&nbsp;&nbsp;
+    {% if pageID%}&nbsp;&nbsp;&nbsp;{% if maxPage > 1 %}共{{maxPage}}页{% endif %}
     {% if pageID > 1 %}<b><a href="?search={% if searchfor %}{{searchfor}}{% endif %}&page={{pageID-1}}"><code>上一页</code></a></b>{% endif %} 
     {% if pageID < maxPage %}<b><a href="?search={% if searchfor %}{{searchfor}}{% endif %}&page={{pageID+1}}"><code>下一页</code></a></b>{% endif %}
     {% endif %}
