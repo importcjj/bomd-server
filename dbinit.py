@@ -7,5 +7,5 @@ from sae.storage import Bucket, Connection
 PROJECT_NAME = ""
 
 CreateTableEssay()
-CreateTableComment()
-Bucket('resources').put()
+# CreateTableComment()
+# Bucket('resources').put()
