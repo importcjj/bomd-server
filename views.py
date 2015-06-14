@@ -3,9 +3,11 @@ import os
 import sys
 import pages
 from config import *
-import sqlite4comment as db4comment
-import sqlite4essay as db4essay
-# from sae.storage import Bucket, Connection
+# import sqlite4comment as db4comment
+# import sqlite4essay as db4essay
+import mysql4comment as db4comment
+import mysql4essay as db4essay
+from sae.storage import Bucket, Connection
 
 from flask import Flask
 from flask import render_template, url_for, request, redirect, make_response, session
