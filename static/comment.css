@@ -1,0 +1,16 @@
+.commenttext{
+    width:100%;
+    height:110px;
+    resize:none;
+    box-sizing:border-box;
+}
+.commentuser{
+	font-size: 20px;
+	width:49%;
+    height:30px;
+}
+.commentemail{
+	font-size: 20px;
+	width:49%;
+    height:30px;
+}

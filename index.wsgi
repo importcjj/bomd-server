@@ -1,5 +1,5 @@
 import sae
 from views import app
-import dbinit
+import Tools.dbinit
 
 application = sae.create_wsgi_app(app)

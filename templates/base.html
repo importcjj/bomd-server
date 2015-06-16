@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../static/default/Clearness.css">
     <link rel="stylesheet" type="text/css" href="../static/link.css">
     <link rel="stylesheet" type="text/css" href="../static/footer.css">
-    <link rel="stylesheet" type="text/css" href="../static/textarea.css">
+    <link rel="stylesheet" type="text/css" href="../static/comment.css">
+    <link rel="stylesheet" type="text/css" href="../static/default/Clearness.css">
     <!--base target="_blank"-->
     {% if title %}
     <title>简单| {{title}}</title>
@@ -30,11 +30,11 @@
         <b><a class="navbara" href="/logout" target="_self">注销</a></b>
         {% else %}
 		{% endif %}
-</div><hr>
+    </div><hr>
 
     
     {% block content %}{% endblock %}
-        </div>
+    </div>
     <div id="footer">
     <hr>
         @ 2015 BOMD. by Importcjj

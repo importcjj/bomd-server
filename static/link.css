@@ -1,14 +1,5 @@
 /*This is my comment*/
-.navbar {
-    background: #0593d3;
-    color: #444444;
-    border: 1px solid rgba(255, 255, 255, 0.75);
-  /*border-radius: 4px;*/
-}
-.navbara{    
-      font-size: 16px;
-      color: #fff;
-}
+
 a:link {
     text-decoration: none;
 }

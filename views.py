@@ -1,13 +1,13 @@
 # coding:utf-8
 import os
 import sys
-import pages
-from config import *
-# import sqlite4comment as db4comment
-# import sqlite4essay as db4essay
-import mysql4comment as db4comment
-import mysql4essay as db4essay
-from sae.storage import Bucket, Connection
+from Tools import pages
+from Tools.config import *
+import Tools.sqlite4comment as db4comment
+import Tools.sqlite4essay as db4essay
+# import Tools.mysql4comment as db4comment
+# import Tools.mysql4essay as db4essay
+# from sae.storage import Bucket, Connection
 
 from flask import Flask
 from flask import render_template, url_for, request, redirect, make_response, session
