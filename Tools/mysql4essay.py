@@ -94,7 +94,7 @@ def SelectEssay(title):
 def listEssays():
 	conn = get_conn()
 	cursor = conn.cursor()
-	sql = "select title, uptime, pwd, tag from Essay order by EssayID desc"
+	sql = "select title, uptime, pwd, body, tag from Essay order by EssayID desc"
 	try:
 		cursor.execute(sql)
 		artilces = cursor.fetchall()

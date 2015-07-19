@@ -8,12 +8,11 @@ position: relative;
 }
 #main {
 padding: 0px;
-padding-bottom: 60px;  
+padding-bottom: 165px;  
 }
 #footer {
 position: absolute;
 bottom: 0;
 padding: 10px 0;
-/*background-color: #AAA;*/
 width: 100%;
 }

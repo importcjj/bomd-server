@@ -1,0 +1,292 @@
+p{
+    margin: 15px 0;
+}
+/*博客图标*/
+p#blog-title{
+	margin: 0;
+	padding-left: 10px;
+	background: #666666;
+	font-size: 30px;
+	border-top: 1px solid #D9D9D9;
+	border-left: 1px solid #D9D9D9;
+	border-right: 1px solid #D9D9D9;
+	text-decoration: none;}
+	p#blog-title a{
+		text-decoration: none;
+		color: #fff;
+		font-weight: bold;
+		/*text-shadow: 0.1px 1px 2px #139385;*/
+	}
+
+/*网站喇叭*/
+p.laba{
+	margin: 0;
+	padding: 5px 0;
+	background: #fff;
+	color: #ccc;
+	font-weight: bold;
+	padding-left: 12px;
+	border-left: 1px solid #D9D9D9; 
+	border-bottom: 1px solid #D9D9D9;
+	border-right: 1px solid #D9D9D9;}
+
+/*导航栏*/
+div.navbar{
+	height: 25px;
+	background: #666666;
+	border: 1px solid #D9D9D9}
+	.navbar-ul{
+		padding-left: 10px;
+		height: 100%;
+		margin: 0;
+		list-style: none;}
+	.navbar-ul li{
+		float: left;
+		line-height: 0;
+		height: 25px;}
+	.navbar-ul a{
+		padding: 1px 10px 2px 10px;
+		line-height: 25px;
+		font-size: 16px;
+		font-weight: bold;
+		color: #fff;
+		text-decoration: none;}
+	.navbar-ul a:hover{
+		background: #fff;
+		color: #139385;
+	}
+
+/*搜索栏*/
+form.search{
+}
+	.search input{
+		float: right;
+		margin: 0;
+	}
+/*作者简介*/
+div#about-me{
+	height: 90px;
+	margin: 5px 0 5px 0;
+	padding: 10px;
+	background: #666666;
+	border: 1px solid #ccc;
+	color: #FFF;
+}
+	img.my-ico{
+		float: left;
+		width: 90px;
+		height: 90px;
+		margin-right: 10px;
+	}
+	#about-me p{
+		margin: 0;
+	}
+
+/*文章标签栏*/
+div#tag{
+	background: #fff;
+	padding: 4px 4px;
+	border: 1px solid #D9D9D9;
+}
+	div#tag a{
+		padding: 0 12px;
+		border-radius: 6px;
+		border: 1px solid #D9D9D9;
+		color: #999;
+		text-decoration: none;
+		background: #fff;
+		white-space: nowrap;
+	}
+	div#tag a:hover{
+		color: #fff;
+		background: #D9D9D9;
+	}
+
+p.div-tag{
+	width: 80px;
+	margin-bottom: 0px;
+	background: #666666;
+	color: #fff;
+	text-align: center;
+}
+/*文章列表*/
+div#articles{
+}
+	div.pre-one{
+		margin-bottom: 15px;
+		padding: 0 0 5px 0;
+		background: #fff;
+		border: 1px solid #CCC;
+	}
+	header.pre-header{
+		margin: 0 10px;
+	}
+	p.pre-title{
+		font-size: 18px;
+		margin-left: -10px;
+	}
+	p.pre-details{
+		margin: 0;
+	}
+		.pre-details span{
+			color: #ccc;
+		}
+		.pre-details a {
+			text-decoration: none;
+		}
+	div.part-text{
+		margin: 0px 10px;
+		min-height: 100px;
+		max-height: 387px;
+		font-size: 10px;
+		text-overflow: ellipsis;
+		/*white-space:nowrap;*/
+		overflow:hidden;
+	}
+	a.btn-more{
+		padding: 2px 6px;
+		margin: 15px 10px 0 10px;
+		color: #ccc;
+		border: 1px solid #ccc;
+		text-decoration: none;
+	}
+	p.page{
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+		.page span{
+			background: #fff;
+			color: #666666;
+			width: 60px;
+			display: inline-block;
+		}
+		a.go-page{
+			color: #ccc;
+			text-decoration: none;
+		}
+		a.go-page:hover::before{
+			content: "[";
+		}
+		a.go-page:hover::after{
+			content: "]";
+		}
+
+/*文章正文*/
+article{
+	background: #fff;
+	padding: 0 20px;
+	font-family: ComicsansMs;
+	min-height: 400px;
+	margin-top: 0px;
+	border: 1px solid #D9D9D9;}
+	p.comment_i{
+		float: right;
+	}
+	.comment_i span{
+		color: #139385;
+		font-size: 35px;
+	}
+	p.article_detail{
+		margin-top: -10px;
+	}
+	.article_detail span{
+		margin: 0;
+		color: #999;
+		font-size: 14px;
+	}
+	div.access-pwd{
+		text-align: center;
+		margin-top: 100px;
+	}
+	span.article-class{
+	}
+	span.article-date{
+		margin-right: 40px;
+	}
+
+/*评论*/
+div.comment{
+	padding: 5px 0;
+	background: #fff;
+	border: 1px solid #D9D9D9}
+	div.one-comment{
+		margin: 5px 10px;
+	}
+		header.one-comment-header{
+			border-bottom: 1px solid #139385;
+		}
+		img.one-comment-head-img{
+			width: 40px;
+			height: 40px;
+			margin-bottom: -6px;
+		}
+		p.one-comment-text{
+			padding: 5px 10px;
+		}
+	div.comment-post{
+		padding: 5px 10px;
+		background: #FBFCDC;}
+		textarea.commenttext{
+	    	width: 100%;
+	    	height: 110px;
+	    	resize: none;
+	    	margin: 5px 0 0 0;
+	   		border-color: #D9D9D9;
+		}
+		div.input{
+			height: 29px;
+		}
+			input.commentuser{
+				right: 0;
+		    	margin: 0;
+				color: #139385;
+				font-size: 16px;
+		    	height: 26px;
+			}
+			input.commentemail{
+				right: 0;
+		    	margin: 0 5px 0 0;
+				color: #139385;
+				font-size: 16px;
+		    	height: 26px;
+			}
+			div.post-btn{
+				margin-top: 0.5px;
+				float: right;
+				}
+				input.btn-submit{
+					border-radius: 1px;
+					width: 60px;
+					height: 29px;
+					background: #139385;
+					border: none;
+				}
+
+/*关于页面*/
+div.about{
+	height: 300px;
+	background-position: 50% 50%;
+	background-attachment: fixed;
+}
+
+div#footer{
+	/*border-top: 3px solid #000;*/
+}
+	#footer a{
+		padding: 6px;
+		text-decoration: none;
+		color: #ccc;
+		margin-left: -10px;
+	}
+	img.github-logo{
+		float: right;
+		height: 28px;
+		width: 28px;
+	}
+
+
+*{
+	padding: 0;
+	margin: 0;
+}

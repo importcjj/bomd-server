@@ -11,7 +11,7 @@ def get_conn():
 def new_comment(essayTitle, username, email, parentID, replyto, content):
 	conn = get_conn()
 	cursor = conn.cursor()
-	uptime = time.strftime('%Y-%m-%d-%X', time.localtime())
+	uptime = time.strftime('%Y-%m-%d %X', time.localtime())
 	try:
 		#return "gg"
 		sql = "insert into Comment(essayTitle, username, email, uptime, parentID, replyto, content)"\
