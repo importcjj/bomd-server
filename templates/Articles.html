@@ -48,8 +48,13 @@
 {% endfor %}
 <p class="page">
     {% if pageID%}
+    
+    
     <span>{% if pageID > 1 %}<a class="go-page" href="?search={% if searchfor %}{{searchfor}}{% endif %}&page={{pageID-1}}">上一页</a>{% endif %}</span>
+    
+
     <span> {% if maxPage %}{{pageID}}/{{maxPage}}{% endif %}</span>
+
     <span>{% if pageID < maxPage %}
     <a class="go-page" href="?search={% if searchfor %}{{searchfor}}{% endif %}&page={{pageID+1}}">下一页</a>{% endif %}</span>
     {% endif %}

@@ -4,12 +4,12 @@ p{
 /*博客图标*/
 p#blog-title{
 	margin: 0;
-	padding-left: 10px;
-	background: #666666;
+	padding: 20px 20px;
+	background: #139385;
 	font-size: 30px;
-	border-top: 1px solid #D9D9D9;
+/*	border-top: 1px solid #D9D9D9;
 	border-left: 1px solid #D9D9D9;
-	border-right: 1px solid #D9D9D9;
+	border-right: 1px solid #D9D9D9;*/
 	text-decoration: none;}
 	p#blog-title a{
 		text-decoration: none;
@@ -33,7 +33,7 @@ p.laba{
 /*导航栏*/
 div.navbar{
 	height: 25px;
-	background: #666666;
+	background: #139385;
 	border: 1px solid #D9D9D9}
 	.navbar-ul{
 		padding-left: 10px;
@@ -68,9 +68,9 @@ div#about-me{
 	height: 90px;
 	margin: 5px 0 5px 0;
 	padding: 10px;
-	background: #666666;
-	border: 1px solid #ccc;
-	color: #FFF;
+	background: #fff;
+	border: 1px solid #139385;
+	color: #139385;
 }
 	img.my-ico{
 		float: left;
@@ -91,21 +91,23 @@ div#tag{
 	div#tag a{
 		padding: 0 12px;
 		border-radius: 6px;
-		border: 1px solid #D9D9D9;
-		color: #999;
+		border: 1px solid #ccc;
+		color: #ccc;
 		text-decoration: none;
 		background: #fff;
 		white-space: nowrap;
 	}
 	div#tag a:hover{
 		color: #fff;
-		background: #D9D9D9;
+		background: #139385;
 	}
 
 p.div-tag{
+	/*display: inline-block;*/
 	width: 80px;
+	margin-left: 20px;
 	margin-bottom: 0px;
-	background: #666666;
+	background: #D9D9D9;
 	color: #fff;
 	text-align: center;
 }
@@ -157,7 +159,7 @@ div#articles{
 	}
 		.page span{
 			background: #fff;
-			color: #666666;
+			color: #139385;
 			width: 60px;
 			display: inline-block;
 		}
@@ -274,10 +276,7 @@ div#footer{
 	/*border-top: 3px solid #000;*/
 }
 	#footer a{
-		padding: 6px;
 		text-decoration: none;
-		color: #ccc;
-		margin-left: -10px;
 	}
 	img.github-logo{
 		float: right;
