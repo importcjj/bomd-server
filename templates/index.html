@@ -1,8 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-<div style="text-align:center;margin-top:30px;">
-
-    
+<div class="recently-doing">
+    <a href="http://nottubed.sinaapp.com">NotTubed</a>
+    <p>Doing now!</p>
+</div>
+<div class="index-img-box">
+    <div class="index-img-box-bkg">
+        <div class="index-img"></div>
+    </div>
+<div class="infomation-box">
+        <p class="title">About Bomd</p>
+        <p class="blog-infomation">共计博文{{article_num}}篇,</p>
+        <p class="blog-infomation">累计评论{{comment_num}}次,</p>
+        <p class="blog-infomation">还在健康漂亮的成长:)</p>
+</div>
 </div>
 
 {% endblock %}

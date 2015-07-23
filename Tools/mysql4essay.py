@@ -82,7 +82,7 @@ def SelectEssay(title):
 	sql = "select * from Essay where title = '%s'"%title
 	try:
 		cursor.execute(sql)
-		essay = cursor.fetchone()
+		essay = cursor.fetchone()[0]
 		conn.commit()
 	except Exception as e:
 		raise e
@@ -107,6 +107,20 @@ def listEssays():
 
 	return artilces
 
+def total():
+	conn = get_conn()
+	cursor = conn.cursor()
+	try:
+		sql = "select count(*) from Essay"
+		cursor.execute(sql)
+		num = cursor.fetchone()
+		conn.commit()
+	except Exception as e:
+		return e
+	finally:
+		cursor.close()
+		conn.close()
+	return num
 
 def CreateTableEssay():
 	conn = get_conn()

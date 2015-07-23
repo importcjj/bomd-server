@@ -17,38 +17,36 @@
 <body >
 <div id="content">
     <div id="main">
-    <p id="blog-title"><a href="/index" target="_self">简单|BOMD✎...</a></p>
-    <div class="navbar">
-        <ul class="navbar-ul">
-        <li><a href="/index" target="_self">首页</a></li>
-        <li><a href="/articles" target="_self">博文</a></li>
-        <!-- <b><a href="/resources" target="_self">资源</a></b> -->
-        <li><a href="/about" target="_self">关于</a></li>
-        <li><a href="/chenjiaju" target="_self">简历</a></li>
-        
-        {% if user %} 
-        <li><a href="/userzone?name={{user}}">{{user}}</a></li>
-        <li><a href="/logout" target="_self">注销</a></li>
-        {% else %}
-        {% endif %}
-        </ul>
-    </div>
-    <p class="laba">>>{{maxim}}</p>
-
-    {% block content %}{% endblock %}
+        <div class="top-bkg-color"></div>
+        <p id="blog-title"><a href="/index" target="_self">简单|BOMD✎...</a></p>
+        <div class="navbar">
+            <ul class="navbar-ul">
+            <li><a href="/index" target="_self">首页</a></li>
+            <li><a href="/articles" target="_self">博文</a></li>
+            <!-- <b><a href="/resources" target="_self">资源</a></b> -->
+            <li><a href="/about" target="_self">关于</a></li>
+            <li><a href="/chenjiaju" target="_self">简历</a></li>
+            {% if user %} 
+            <li><a href="/userzone?name={{user}}">{{user}}</a></li>
+            <li><a href="/logout" target="_self">注销</a></li>
+            {% else %}
+            {% endif %}
+            </ul>
+        </div>
+        <p class="laba">>>{{maxim}}</p>
+        {% block content %}{% endblock %}
     </div>
     <div id="footer">
-    <div id="about-me">
-        <img class="my-ico" src="../static/images/baby.jpg"/>
+    <!-- <div class="footer-color-bkg"></div> -->
+        <!-- <img class="my-ico" src="../static/images/baby.jpg"/> -->
         <p>Name <span>陈家驹</span></p>
         <p>Age <span>23</span></p>
         <p>Sex <span>男</span></p>
         <p>Email <span>619507631@qq.com</span></p>
-    </div>
-    <a href="https://github.com/importcjj" target="_blank">
-    <img class="github-logo" src="../static/images/github-logo.png"/>
-    </a>
-        <a class="text">@ 2015 BOMD. by Importcjj</a>
+        <p class="text">@ 2015 BOMD. by Importcjj</p>
+        <a href="https://github.com/importcjj" target="_blank">
+            <img class="github-logo" src="../static/images/github-logo.png"/>
+        </a>
     </div>
 
 </div>

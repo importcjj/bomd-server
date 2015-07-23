@@ -1,122 +1,176 @@
 {% extends "base.html" %}
 {% block content %}
-<div>
 <form class="search">
     <input maxlength="15" name="search" placeholder="搜索文章"/>
 </form>
-<p class="div-tag">TAG</p>
-<div id="tag">
-    <a href="?search=python">python</a>
-    <a href="?search=Git">Git</a>
-    <a href="?search=GitHub">GitHub</a>
-    <a href="?search=Java">Java</a>
-    <a href="?search=MongoDB">MongoDB</a>
-    <a href="?search=普通">普通</a></b>
-    <a href="?search=flask">flask</a>
-    <a href="?search=MacOS">MacOS</a>
-    <a href="?search=Linux">Linux</a>
-    <a href="?search=Unix">Unix</a>
-    <a href="?search=MarkDown">MarkDown</a>
-    <a href="?search=Objective-C">Objective-C</a>
-    <a href="?search=Swift">Swift</a>
-    <a href="?search=Ios开发">Ios开发</a>
-    <a href="?search=生活">生活</a>
-    <a href="?search=疑问">疑问</a>
-</div>
+
+<div class="article-box">
+
+    <div class="tag-box">
+        <div class="tag-color-bkg"></div>
+        <p class="div-tag">TAG</p>
+        <div id="tag">
+            <div class="one-tag">
+                <img class="tag-img" src="../static/images/python.png"/>
+                <a href="?search=python">python</a>
+            </div>
+            <div class="one-tag">
+                <img class="tag-img" src="../static/images/git.jpg"/>
+                <a href="?search=Git">Git</a>
+            </div>
+            <div class="one-tag">
+                <img class="tag-img" src="../static/images/github.jpg"/>
+                <a href="?search=GitHub">GitHub</a>
+            </div>
+            <div class="one-tag">
+                <img class="tag-img" src="../static/images/java.jpg"/>
+                <a href="?search=Java">Java</a>
+            </div>
+            <div class="one-tag">
+                <img class="tag-img" src="../static/images/mongodb.png"/>
+                <a href="?search=MongoDB">MongoDB</a>
+            </div>
+            <div class="one-tag">
+                <img class="tag-img" src="../static/images/python.png"/>
+                <a href="?search=普通">普通</a>
+            </div>
+            <div class="one-tag">
+                <img class="tag-img" src="../static/images/flask.png"/>
+                <a href="?search=flask">flask</a>
+            </div>
+            <div class="one-tag">
+                <img class="tag-img" src="../static/images/mac-os.png"/>
+                <a href="?search=MacOS">MacOS</a>
+            </div>
+            <div class="one-tag">
+                <img class="tag-img" src="../static/images/linux.png"/>
+                <a href="?search=Linux">Linux</a>
+            </div>
+            <div class="one-tag">
+                <img class="tag-img" src="../static/images/unix.png"/>
+                <a href="?search=Unix">Unix</a>
+            </div>
+            <div class="one-tag">
+                <img class="tag-img" src="../static/images/markdown.png"/>
+                <a href="?search=MarkDown">MarkDown</a>
+            </div>
+            <div class="one-tag">
+                <img class="tag-img" src="../static/images/python.png"/>
+                <a href="?search=Objective-C">Objective-C</a>
+            </div>
+            <div class="one-tag">
+                <img class="tag-img" src="../static/images/swift.png"/>
+                <a href="?search=Swift">Swift</a>
+            </div>
+            <div class="one-tag">
+                <img class="tag-img" src="../static/images/ios8.png"/>
+                <a href="?search=Ios开发">Ios开发</a>
+            </div>
+            <div class="one-tag">
+                <img class="tag-img" src="../static/images/life.png"/>
+                <a href="?search=生活">生活</a>
+            </div>
+            <div class="one-tag">
+                <img class="tag-img" src="../static/images/ask.png"/>
+                <a href="?search=疑问">疑问</a>
+            </div>
+        </div>
+    </div>
+
+
 {% if num == 'all'%}
-<p class="div-tag">{{tag}}</p>
-{% if tips %}
-<div class="pre-one"><p>{{tips}}</p></div>
-{% endif %}
-<div id="articles">
-{% for article in articles %}
-<div class="pre-one">
-<header class="pre-header">
-<p class="pre-title"><a href="?title={{article[0]}}">
-{% if article[2] %}{% else%}{% endif %}
-{{article[0]}}</a></p>
-<p class="pre-details">
-<span>{{article[1]}}</span>
-<a href="?search={{article[4]}}">
-<span>@{{article[4]}}</span></a>
-</p>
-</header>
-<div class="part-text">{{article[3]|safe}}</div>
-<br>
-<a class="btn-more" href="?title={{article[0]}}">阅读全文...</a>
-</div>
-{% endfor %}
-<p class="page">
-    {% if pageID%}
-    
-    
-    <span>{% if pageID > 1 %}<a class="go-page" href="?search={% if searchfor %}{{searchfor}}{% endif %}&page={{pageID-1}}">上一页</a>{% endif %}</span>
-    
-
-    <span> {% if maxPage %}{{pageID}}/{{maxPage}}{% endif %}</span>
-
-    <span>{% if pageID < maxPage %}
-    <a class="go-page" href="?search={% if searchfor %}{{searchfor}}{% endif %}&page={{pageID+1}}">下一页</a>{% endif %}</span>
+    <p class="div-tag">{{tag}}</p>
+    <div id="articles">
+    {% if tips %}
+    <div class="pre-one"><p style="text-align: center;">{{tips}}</p></div>
     {% endif %}
-</p>
-</div>
+    {% for article in articles %}
+        <div class="pre-one">
+        <header class="pre-header">
+        <p class="pre-title"><a href="?title={{article[0]}}">
+        {% if article[2] %}{% else%}{% endif %}
+        {{article[0]}}</a></p>
+        <p class="pre-details">
+        <span>{{article[1]}}</span>
+        <a href="?search={{article[4]}}">
+        <span>@{{article[4]}}</span></a>
+        </p>
+        </header>
+        <div class="part-text">{{article[3]|safe}}</div>
+        <br>
+        <a class="btn-more" href="?title={{article[0]}}">阅读全文...</a>
+        </div>
+        {% endfor %}
+        <!-- 页码 -->
+        <p class="page">
+            {% if pageID%}
+            
+            
+            <span>{% if pageID > 1 %}<a class="go-page" href="?search={% if searchfor %}{{searchfor}}{% endif %}&page={{pageID-1}}">上一页</a>{% endif %}</span>
+            
+
+            <span> {% if maxPage %}{{pageID}}/{{maxPage}}{% endif %}</span>
+
+            <span>{% if pageID < maxPage %}
+            <a class="go-page" href="?search={% if searchfor %}{{searchfor}}{% endif %}&page={{pageID+1}}">下一页</a>{% endif %}</span>
+            {% endif %}
+        </p>
+    </div>
 {% else %}
     <div class="article">
-    <p class="div-tag">ARTICLE</p>
-    <article>
-    <p class="comment_i"><span>{{comments_num}}</span>评论</p>
-    <h1>{{article[0]}}</h1>
-    <p class="article_detail">
-    <span class="article-date">{{article[1]}}</span>
-    {% if article[4] %}
-    <span class='article-class'>
-    >>{{article[4]}}
-    </span>
-    {% endif %}
-    </p>
-    {% if article[2] != lock %}
-    <div class="access-pwd">
-    <a>文档加密，请输入正确的访问密码</a>
-    <form method="post">
-    <input name="lock" placeholder = "输入密码" target="_self">
-    </form>
-    </div>
-    {% else %}
-	{{article[3]|safe}}
-    </article>
+        <p class="div-tag">ARTICLE</p>
+        <article>
+        <p class="comment_i"><span>{{comments_num}}</span>评论</p>
+        <h1>{{article[0]}}</h1>
+        <p class="article_detail">
+        <span class="article-date">{{article[1]}}</span>
+        {% if article[4] %}
+        <span class='article-class'>
+        >>{{article[4]}}
+        </span>
+        {% endif %}
+        </p>
+        {% if article[2] != lock %}
+        <div class="access-pwd">
+        <a>文档加密，请输入正确的访问密码</a>
+        <form method="post">
+        <input name="lock" placeholder = "输入密码" target="_self">
+        </form>
+        </div>
+        {% else %}
+    	{{article[3]|safe}}
+        </article>
     </div>
 	
-</div>
-<p class="div-tag">COMMENT</p>
-<div class="comment">
-<div>
-{%if comments%}
-    {% for comment in comments %}
-    <!--form action="../comment?article={{article[0]}}&parentID={{comment[0]}}&replyto={{comment[2]}}" method="post"-->
-    <div class="one-comment">
-    <header class="one-comment-header">
-    <img class="one-comment-head-img" src="../static/images/github.png"/>
-    {{comment[2]}}<!--input type="submit" value="回复"/-->  
-    回复于：{{comment[4]}}
-    </header>
-    <!--/form-->
-    <p class="one-comment-text">{{comment[7]}}</p>
+    <p class="div-tag">COMMENT</p>
+    <div class="comment">
+    {%if comments%}
+        {% for comment in comments %}
+        <div class="one-comment">
+        <header class="one-comment-header">
+        <img class="one-comment-head-img" src="../static/images/char_c.jpg"/>
+        {{comment[2]}}
+        回复于：{{comment[4]}}
+        </header>
+        <p class="one-comment-text">{{comment[7]}}</p>
+        </div>
+    	{% endfor %}
+    {% else %}
+    <p style="text-align: center;">还没有评论，快来抢沙发吧!</p><br>
+    {% endif %}
+        <div>
+            <div class="comment-post">
+            	<form action="../comment?article={{article[0]}}" method="post">
+                <textarea class="commenttext"  name="content" placeholder="在这里输入你的评论" maxlength="500"></textarea>
+                <div class="input">
+                    <input class="commentuser" name="username" type="text" maxlength="15" {% if nickname %}value={{nickname}} {%else%} placeholder="昵称"{% endif%}>
+                    <input class="commentemail" name="email" type="text" {% if email %}value={{email}} {%else%} placeholder="邮箱"{% endif %}>
+                <div class="post-btn"><input class="btn-submit" type="submit" value="提交"></div>
+                </div>
+            	</form>
+            </div>
+        </div>
     </div>
-	{% endfor %}
-{% else %}
-还没有评论，快来抢沙发吧!<br>
-{% endif %}
-<div>
-<div class="comment-post">
-	<form action="../comment?article={{article[0]}}" method="post">
-    <textarea class="commenttext"  name="content" placeholder="在这里输入你的评论" maxlength="500"></textarea>
-    <div class="input">
-        <input class="commentuser" name="username" type="text" maxlength="15" {% if nickname %}value={{nickname}} {%else%} placeholder="昵称"{% endif%}>
-        <input class="commentemail" name="email" type="text" {% if email %}value={{email}} {%else%} placeholder="邮箱"{% endif %}>
-    <div class="post-btn"><input class="btn-submit" type="submit" value="提交"></div>
-    </div>
-	</form>
-</div>
 </div>
 {% endif %}{% endif%}
 {% endblock %}

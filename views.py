@@ -34,7 +34,9 @@ def index():
         return render_template("index.html", **TemplateSettingDict(user=username, title=title, img=img))
     else:
         # return redirect("/login")
-        return render_template("index.html", **TemplateSettingDict(title=title, img=img))
+        article_num = db4essay.total()
+        comment_num = db4comment.total()
+        return render_template("index.html", **TemplateSettingDict(title=title, img=img, comment_num=comment_num, article_num=article_num))
 
 # 注册的处理逻辑
 @app.route('/regist', methods=['GET', 'POST'])

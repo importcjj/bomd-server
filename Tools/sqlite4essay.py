@@ -87,8 +87,22 @@ def listEssays():
 		cursor.close()
 		conn.close()
 
-	return artilces
+	return iter(artilces)
 
+def total():
+	conn = get_conn()
+	cursor = conn.cursor()
+	try:
+		sql = "select count(*) from Essay"
+		cursor.execute(sql)
+		num = cursor.fetchone()[0]
+		conn.commit()
+	except Exception as e:
+		return e
+	finally:
+		cursor.close()
+		conn.close()
+	return num
 
 def CreateTableEssay():
 	conn = get_conn()

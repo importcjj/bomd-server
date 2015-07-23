@@ -56,6 +56,21 @@ def getByTitle(essayTitle):
 		conn.close()
 	return comments
 
+def total():
+	conn = get_conn()
+	cursor = conn.cursor()
+	try:
+		sql = "select count(*) from Comment"
+		cursor.execute(sql)
+		num = cursor.fetchone()
+		conn.commit()
+	except Exception as e:
+		return e
+	finally:
+		cursor.close()
+		conn.close()
+	return num
+
 def CreateTableComment():
 	conn = get_conn()
 	cursor = conn.cursor()

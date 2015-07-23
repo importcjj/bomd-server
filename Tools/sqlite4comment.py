@@ -19,7 +19,7 @@ def new_comment(essayTitle, username, email, parentID, replyto, content):
 		cursor.execute(sql)
 		conn.commit()
 	except Exception as e:
-		return sql
+		return e
 	finally:
 		cursor.close()
 		conn.close()
@@ -33,11 +33,26 @@ def getByTitle(essayTitle):
 		comments = cursor.fetchall()
 		conn.commit()
 	except Exception as e:
-		return sql
+		return e
 	finally:
 		cursor.close()
 		conn.close()
 	return comments
+
+def total():
+	conn = get_conn()
+	cursor = conn.cursor()
+	try:
+		sql = "select count(*) from Comment"
+		cursor.execute(sql)
+		num = cursor.fetchone()[0]
+		conn.commit()
+	except Exception as e:
+		return e
+	finally:
+		cursor.close()
+		conn.close()
+	return num
 
 def CreateTableComment():
 	conn = get_conn()

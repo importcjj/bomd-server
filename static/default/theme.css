@@ -2,39 +2,63 @@ p{
     margin: 15px 0;
 }
 /*博客图标*/
+div.top-bkg-color {
+	width: 200%;
+	height: 255px;
+	position: absolute;
+	margin: -60px 0 0 -30%;
+	background: #A7CDFE;
+	background-image: url(../images/Milkeyway.jpg);
+	background-position: 30% 50%;
+	background-repeat: no-repeat;
+	z-index: 1;
+	transform: rotate(3.2deg);
+	-webkit-transform: rotate(3.2deg);
+	box-shadow: 2px 2px 5px #888888;
+}
 p#blog-title{
 	margin: 0;
 	padding: 20px 20px;
-	background: #139385;
+	/*background: #139385;*/
 	font-size: 30px;
-/*	border-top: 1px solid #D9D9D9;
-	border-left: 1px solid #D9D9D9;
-	border-right: 1px solid #D9D9D9;*/
+	position: relative;
+	z-index: 3;
+	/*border-top: 1px solid #D9D9D9;*/
+	/*border-left: 1px solid #D9D9D9;*/
+	/*border-right: 1px solid #D9D9D9;*/
 	text-decoration: none;}
 	p#blog-title a{
 		text-decoration: none;
 		color: #fff;
 		font-weight: bold;
+		text-shadow: 2px 2px 5px #888888;
 		/*text-shadow: 0.1px 1px 2px #139385;*/
 	}
 
 /*网站喇叭*/
 p.laba{
 	margin: 0;
+	height: 70px;
 	padding: 5px 0;
-	background: #fff;
-	color: #ccc;
+	/*background: #139385;*/
+	position: relative;
+	z-index: 3;
+	color: #fff;
 	font-weight: bold;
 	padding-left: 12px;
-	border-left: 1px solid #D9D9D9; 
+/*	border-left: 1px solid #D9D9D9; 
 	border-bottom: 1px solid #D9D9D9;
-	border-right: 1px solid #D9D9D9;}
+	border-right: 1px solid #D9D9D9;
+    box-shadow: 2px 2px 5px #888888;*/
+}
 
 /*导航栏*/
 div.navbar{
 	height: 25px;
-	background: #139385;
-	border: 1px solid #D9D9D9}
+	position: relative;
+	z-index: 3;
+	border: 1px solid #D9D9D9
+}
 	.navbar-ul{
 		padding-left: 10px;
 		height: 100%;
@@ -52,70 +76,163 @@ div.navbar{
 		color: #fff;
 		text-decoration: none;}
 	.navbar-ul a:hover{
-		background: #fff;
-		color: #139385;
+		text-shadow: 2px 2px 5px #888888;
 	}
 
 /*搜索栏*/
 form.search{
+	position: relative;
+	z-index: 3;
 }
 	.search input{
+		height: 18px;
 		float: right;
 		margin: 0;
 	}
-/*作者简介*/
-div#about-me{
-	height: 90px;
-	margin: 5px 0 5px 0;
-	padding: 10px;
-	background: #fff;
-	border: 1px solid #139385;
-	color: #139385;
-}
-	img.my-ico{
-		float: left;
-		width: 90px;
-		height: 90px;
-		margin-right: 10px;
-	}
-	#about-me p{
-		margin: 0;
+div.recently-doing {
+	height: 300px;
+	text-align: center;}
+	.recently-doing a{
+		margin-top: 130px;
+		display: inline-block;
+		width: 160px;
+		height: 60px;
+		font-size: 36px;
+		border: 2px solid #346EB7;
+		border-radius: 8px;
+		text-decoration: none;
 	}
 
-/*文章标签栏*/
-div#tag{
-	background: #fff;
-	padding: 4px 4px;
-	border: 1px solid #D9D9D9;
+div.index-img-box {
+	width: 100%;
+	height: 300px;
+	margin: -10px 0 200px 0;}
+	div.index-img-box-bkg{
+	width: 200%;
+	height: 300px;
+	margin-left: -50%;
+	position: absolute;
+	overflow: hidden;
+	z-index: 1;
+	transform: rotate(3.2deg);
+	-webkit-transform: rotate(3.2deg);
+	box-shadow: 2px 2px 5px #888888;
+	}
+	div.index-img {
+		margin: -100px 0 0 0;
+		width: 100%;
+		height: 600px;
+		position: relative;
+		z-index: 4;
+		background: #A7CDFE;
+/*		background-image: url(../images/Milkeyway.jpg);
+		background-position: 50% 30%;*/
+		transform: rotate(-3.2deg);
+		-webkit-transform: rotate(-3.2deg);
+	}
+	div.infomation-box {
+		text-align: center;
+		position: relative;
+		z-index: 5;}
+		p.title{
+			display: inline-block;
+			font-size: 40px;
+			color: #fff;
+			background: #A7CDFE;
+			text-shadow: 2px 2px 5px #888888;
+		}
+		p.blog-infomation{
+			margin: 0;
+			display: block;
+			text-align: center;
+			height: 60px;
+			color: #fff;
+			font-size: 25px;
+			text-shadow: 2px 2px 5px #888888;
+		}
+
+
+
+div.article-box {
 }
-	div#tag a{
-		padding: 0 12px;
+
+/*文章标签栏*/
+div.tag-box {
+    margin: 0;
+    width: 100%;
+}
+div.tag-color-bkg {
+	width: 200%;
+	height: 0px;
+	position: absolute;
+	margin-left: -50%;
+	background: #f6f6f6;
+	z-index: 1;
+	transform: rotate(4.2deg);
+	-webkit-transform: rotate(1.9deg);
+}
+div#tag{
+	background: #f6f6f6;
+	padding: 6px 6px;
+	position: relative;
+	z-index: 3;
+    text-align: center;
+    box-shadow: 2px 2px 5px #888888;
+    
+}
+	div.one-tag {
+		display: inline-block;
+		padding: 2px;
+		margin-bottom: 5px;
 		border-radius: 6px;
 		border: 1px solid #ccc;
-		color: #ccc;
-		text-decoration: none;
-		background: #fff;
-		white-space: nowrap;
 	}
-	div#tag a:hover{
-		color: #fff;
-		background: #139385;
-	}
+		img.tag-img {
+			width: 20px;
+			height: 20px;
+			margin-right: -2px;
+			vertical-align: top;
+			border: 1px solid #ccc;
+			border-radius: 50%;
+			background: #fff;
+		}
+		div.one-tag a{
+			display: inline-block;
+			width: 85px;
+			color: #999;
+			text-decoration: none;
+			/*background: #fff;*/
+			white-space: nowrap;
+			text-align: center;
+		}
+		div.one-tag:hover{
+			box-shadow: 2px 4px 5px #888888;
+		}
+
+
 
 p.div-tag{
 	/*display: inline-block;*/
 	width: 80px;
 	margin-left: 20px;
 	margin-bottom: 0px;
-	background: #D9D9D9;
-	color: #fff;
+	border-left: 2px dashed #ccc;
+	border-top: 2px dashed #ccc;
+	border-right: 2px dashed #ccc;
+	color: #ccc;
+	position: relative;
+	z-index: 3;
 	text-align: center;
 }
+
 /*文章列表*/
 div#articles{
+	position: relative;
+	z-index: 3;
+    padding: 0 0 1px 0;
+    box-shadow: 2px 2px 5px #888888;
 }
 	div.pre-one{
-		margin-bottom: 15px;
 		padding: 0 0 5px 0;
 		background: #fff;
 		border: 1px solid #CCC;
@@ -124,8 +241,15 @@ div#articles{
 		margin: 0 10px;
 	}
 	p.pre-title{
-		font-size: 18px;
 		margin-left: -10px;
+		padding: 1px 10px;
+		display: inline-block;
+		font-size: 18px;
+		background: #A7CDFE;
+		text-shadow: 2px 2px 5px #888888;
+	}
+	p.pre-title a {
+		color: #fff;
 	}
 	p.pre-details{
 		margin: 0;
@@ -148,7 +272,7 @@ div#articles{
 	a.btn-more{
 		padding: 2px 6px;
 		margin: 15px 10px 0 10px;
-		color: #ccc;
+		color: #999;
 		border: 1px solid #ccc;
 		text-decoration: none;
 	}
@@ -159,12 +283,12 @@ div#articles{
 	}
 		.page span{
 			background: #fff;
-			color: #139385;
+			color: #999;
 			width: 60px;
 			display: inline-block;
 		}
 		a.go-page{
-			color: #ccc;
+			color: #999;
 			text-decoration: none;
 		}
 		a.go-page:hover::before{
@@ -181,6 +305,9 @@ article{
 	font-family: ComicsansMs;
 	min-height: 400px;
 	margin-top: 0px;
+	position: relative;
+	z-index: 3;
+	box-shadow: 2px 2px 5px #888888;
 	border: 1px solid #D9D9D9;}
 	p.comment_i{
 		float: right;
@@ -210,8 +337,9 @@ article{
 /*评论*/
 div.comment{
 	padding: 5px 0;
-	background: #fff;
-	border: 1px solid #D9D9D9}
+	background: #f6f6f6;
+	border: 1px solid #D9D9D9;
+	box-shadow: 2px 2px 5px #888888;}
 	div.one-comment{
 		margin: 5px 10px;
 	}
@@ -221,14 +349,14 @@ div.comment{
 		img.one-comment-head-img{
 			width: 40px;
 			height: 40px;
-			margin-bottom: -6px;
+			border: 1px solid #ccc;
+			border-radius: 50%;
 		}
 		p.one-comment-text{
 			padding: 5px 10px;
 		}
 	div.comment-post{
-		padding: 5px 10px;
-		background: #FBFCDC;}
+		padding: 5px 10px;}
 		textarea.commenttext{
 	    	width: 100%;
 	    	height: 110px;
@@ -237,10 +365,9 @@ div.comment{
 	   		border-color: #D9D9D9;
 		}
 		div.input{
-			height: 29px;
+			height: auto;
 		}
 			input.commentuser{
-				right: 0;
 		    	margin: 0;
 				color: #139385;
 				font-size: 16px;
@@ -261,7 +388,7 @@ div.comment{
 					border-radius: 1px;
 					width: 60px;
 					height: 29px;
-					background: #139385;
+					background: #E33531;
 					border: none;
 				}
 
@@ -273,13 +400,35 @@ div.about{
 }
 
 div#footer{
-	/*border-top: 3px solid #000;*/
+	text-align: center;
+	background: #f6f6f6;
+	z-index: 2;
 }
-	#footer a{
-		text-decoration: none;
+	#footer p, img{
+		margin: 0;
+		position: relative;
+		z-index: 2;
+    	color: #D9D9D9;
+	}
+	img.my-ico{
+		float: left;
+		width: 90px;
+		height: 90px;
+	}
+	#about-me p{
+		margin: 0;
+	}
+	.footer-color-bkg{
+		width: 200%;
+		height: 50px;
+		margin: -25px 0 0 -50%;
+		position: absolute;
+		z-index: 1;
+		background: #139385;
+		transform: rotate(2.2deg);
+		-webkit-transform: rotate(2.2deg);
 	}
 	img.github-logo{
-		float: right;
 		height: 28px;
 		width: 28px;
 	}
